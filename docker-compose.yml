@@ -1,0 +1,16 @@
+version: "3.0"
+services:
+    proxy:
+        container_name: evermock-proxy
+        image: nginx
+        ports:
+            - 80:80
+        volumes:
+            - ./proxy:/etc/nginx/conf.d
+        networks:
+            - evermock
+
+networks:
+    evermock:
+        external:
+            name: evermock
